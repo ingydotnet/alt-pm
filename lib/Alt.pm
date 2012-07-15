@@ -10,7 +10,7 @@ Alt - Alternate Module Implementations
 
 =head1 SYNOPSIS
 
-    cpanm Alt::IO::All::MSTROUT::crackfueled
+    cpanm Alt::IO::All::crackfueled
 
 =head1 DESCRIPTION
 
@@ -21,15 +21,15 @@ Alt concept, how it works, and guidelines for using it well.
 
 =head1 THE PROBLEM
 
-For a given piece of software, CPAN only allows for one implementation, using
-one name, and owned by one author.
+For a given piece of software, CPAN only allows for one implementation of a
+given module/distribution name.
 
-GitHub on the otherhand, is not limited this way. Any author can make a fork,
+GitHub on the other hand, is not limited this way. Any author can make a fork,
 since GitHub repos are namespaced by author id.
 
-On CPAN, even the author of the module in question is limited by this, as they
-cannot release newer or older forks of their code, without introducing a new
-name.
+On CPAN, even the author(s) of the module in question is limited by this, as
+they cannot release newer or older forks of their code, without introducing a
+new name.
 
 =head1 THE SOLUTION
 
@@ -41,7 +41,7 @@ distribute the new version as C<Alt-Foo-Bar-AltIdentifier>.
 
 When a user installs your module like so:
 
-    cpanm Alt::Foo::Bar::AUTHOR::flavor
+    cpanm Alt::Foo::Bar::better
 
 they will get your version of the Foo::Bar framework (Foo::Bar,
 Foo::Bar::Baz).
@@ -63,7 +63,7 @@ people want the old code, they can can install Alt-IO-All-old.
 =head1 GUIDELINES
 
 This idea is new, and the details should be sorted out through proper
-discussions. Pull requests welcome :)
+discussions. Pull requests welcome.
 
 Here are the basic guidelines for using the Alt namespace:
 
@@ -73,26 +73,21 @@ Here are the basic guidelines for using the Alt namespace:
 
 Names for alternate modules should be minted like this:
 
-    "Alt-$Original_Dist_Name-$CPAN_ID-$flavor"
+    "Alt-$Original_Dist_Name-$phrase"
 
 For instance, if MSTROUT wants to make an alternate IO-All distribution to
 make it even more crack fueled, he might call it:
 
-    Alt-IO-All-MSTROUT-crackfueled
+    Alt-IO-All-crackfueled
 
 He might also just call it:
 
     Alt-IO-All-MSTROUT
 
-if he doesn't plan to have multiple alternates. If Ingy (the original IO-All
-author) wants to make an alternate, he can leave out the 'INGY' part:
-
-    Alt-IO-All-crackfueled
-
-Either C<$CPAN_ID> or $<flavor> (or both) I<should> be specified. CPAN id
-should be all CAPS and Flavor should be lowercase. This just makes it more
-obvious what the roles of the words are. It also makes people have to remember
-less when installing an alternate module.
+By having 'Alt' at the start, it guarantees that it does not mess with future
+IO::All development. The "phrase" at the end can be anything unique to CPAN,
+but should describe the spirit of the alternate. If the alternate is meant to
+be short-lived, it can just be the author's CPAN id.
 
 =item Module for CPAN Indexing
 
