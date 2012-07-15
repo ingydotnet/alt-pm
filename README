@@ -1,0 +1,21 @@
+NAME
+    Alt - Alternate Module Implementations
+
+SYNOPSIS
+        cpanm Alt::IO::All::mst
+
+DESCRIPTION
+    "Alt::" is the namespace for alternate implementations of CPAN modules.
+    This documentation is intended to explain this concept, how it works,
+    and guidelines for using it well.
+
+    ... documentation in progress ...
+
+AUTHOR
+    Ingy döt Net <ingy@cpan.org>
+
+COPYRIGHT
+    Copyright (c) 2012. Ingy döt Net.
+
+    See <http://www.perl.com/perl/misc/Artistic.html>
+
