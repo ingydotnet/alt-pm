@@ -1,4 +1,10 @@
 ---
+version: 0.02
+date:    
+changes:
+- Wrote the first real doc revision.
+
+---
 version: 0.01
 date:    Sun Jul 15 13:15:49 PDT 2012
 changes:
