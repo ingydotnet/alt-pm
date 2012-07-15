@@ -1,4 +1,10 @@
 ---
+version: 0.03
+date:    Sun Jul 15 15:45:27 PDT 2012
+changes:
+- Change POD encoding to utf8
+
+---
 version: 0.02
 date:    Sun Jul 15 15:12:46 PDT 2012
 changes:

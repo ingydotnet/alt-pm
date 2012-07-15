@@ -1,8 +1,10 @@
 package Alt;
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 __END__
+
+=encoding utf8
 
 =head1 NAME
 
