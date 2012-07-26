@@ -1,6 +1,6 @@
 package Alt;
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 __END__
 
@@ -104,7 +104,26 @@ your Alternate version's improvements.
 
 =item Versioning
 
-It's not yet clear what kinds of versioning issues will come into play.
+The VERSION of the module you are providing an alternate version of should be
+the same as the original module at the time you release the alternate. This
+will make it play well with others.
+
+To use the IO::All example, if MSTROUT releases Alt-IO-All-MSTROUT when
+IO::All is at version '0.46', his IO::All module should have VERSION = '0.46',
+but his Alt::IO::All::MSTROUT could be VERSION '0.000005'. This should make
+the dist be Alt-IO-All-MSTROUT-0.000005.
+
+If another module wants his version of IO::All, it should list
+Alt::IO::All::MSTROUT 0.000005 as a prereq, and then C<use IO::All 0.46;> in
+the code.
+
+=item no_index
+
+It is important to use the C<no_index> directive on the modules you are
+providing an alternative to. This is especially important if you are the
+author of the original, as PAUSE will reindex CPAN to your Alt- version which
+defeats the purpose. Even if you are not the same author, it will make your
+index reports not show failures.
 
 =item Other Concerns
 

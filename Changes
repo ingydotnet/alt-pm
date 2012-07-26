@@ -1,4 +1,10 @@
 ---
+version: 0.04
+date:    Wed Jul 25 21:08:53 PDT 2012
+changes:
+- Add no_index advice to the doc.
+
+---
 version: 0.03
 date:    Sun Jul 15 15:45:27 PDT 2012
 changes:
