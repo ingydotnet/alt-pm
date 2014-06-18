@@ -1,27 +1,28 @@
 ---
+version: 0.06
+date:    Wed Jun 18 10:51:06 PDT 2014
+changes:
+- Add test prereq Test::Exception
+---
 version: 0.05
 date:    Sun Jun 15 14:06:36 PDT 2014
 changes:
 - Switch to Zilla-Dist
-
 ---
 version: 0.04
 date:    Wed Jul 25 21:08:53 PDT 2012
 changes:
 - Add no_index advice to the doc.
-
 ---
 version: 0.03
 date:    Sun Jul 15 15:45:27 PDT 2012
 changes:
 - Change POD encoding to utf8
-
 ---
 version: 0.02
 date:    Sun Jul 15 15:12:46 PDT 2012
 changes:
 - Wrote the first real doc revision.
-
 ---
 version: 0.01
 date:    Sun Jul 15 13:15:49 PDT 2012

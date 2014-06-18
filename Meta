@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Alt
-version: 0.05
+version: 0.06
 abstract: Alternate Module Implementations
 homepage: https://metacpan.org/release/Alt
 
@@ -17,6 +17,10 @@ author:
 
 requires:
   perl: 5.8.1
+
+test:
+  requires:
+    Test::Exception: 0
 
 devel:
   git: git@github.org/ingydotnet/alt-pm
