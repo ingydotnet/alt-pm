@@ -1,4 +1,9 @@
 ---
+version: 0.07
+date:    Mon Jun 23 15:23:36 PDT 2014
+changes:
+- Attempt to reindex after deleting 0.05 and waiting 3 days.
+---
 version: 0.06
 date:    Wed Jun 18 10:51:06 PDT 2014
 changes:
