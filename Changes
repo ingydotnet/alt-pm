@@ -1,4 +1,9 @@
 ---
+version: 0.08
+date:    Tue Jul  1 10:59:19 PDT 2014
+changes:
+- Trying the reindex again. Unfortunately messed up last time.
+---
 version: 0.07
 date:    Mon Jun 23 15:23:36 PDT 2014
 changes:
