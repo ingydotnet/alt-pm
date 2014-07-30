@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Alt
-version: 0.08
+version: 0.09
 abstract: Alternate Module Implementations
 homepage: https://metacpan.org/release/Alt
 
@@ -23,8 +23,10 @@ test:
     Test::Exception: 0
 
 devel:
-  git: git@github.org/ingydotnet/alt-pm
-  irc: irc.freenode.net/ingy
-  bug: https://github.com/ingydotnet/alt-pm/issues/
+  git: https://github.com/ingydotnet/alt-pm
+  bug: https://github.com/ingydotnet/alt-pm/issues
+  irc: irc.freenode.net#pkg
 
-=travis: perl
+=travis:
+  type: perl
+  irc: irc.freenode.net#pkg
