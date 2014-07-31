@@ -1,4 +1,9 @@
 ---
+version: 0.10
+date:    Thu Jul 31 10:35:30 PDT 2014
+changes:
+- Fix Pod encoding bug. dolmen++
+---
 version: 0.09
 date:    Wed Jul 30 15:33:29 PDT 2014
 changes:

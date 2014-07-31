@@ -84,7 +84,7 @@ release: clean update check-release date test disttest
 	make dist
 	cpan-upload $(DIST)
 	make clean
-	[ -z "$$(git status -s)" ] || git commit -am '$(VERSION)'
+	[ -z "$$(git status -s)" ] || git commit -am 'CPAN Release $(VERSION)'
 	git push
 	git tag $(VERSION)
 	git push --tag
