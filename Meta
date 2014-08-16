@@ -1,12 +1,12 @@
 =meta: 0.0.2
 
 name: Alt
-version: 0.15
+version: 0.16
 abstract: Alternate Module Implementations
 homepage: https://metacpan.org/release/Alt
 language: perl
 license: perl
-copyright: 2012-2014. Ingy döt Net.
+copyright: 2012-2014
 
 author:
   name: Ingy döt Net

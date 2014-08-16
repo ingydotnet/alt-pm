@@ -1,4 +1,9 @@
 ---
+version: 0.16
+date:    Sat Aug 16 14:52:27 PDT 2014
+changes:
+- Fix Meta copyright
+---
 version: 0.15
 date:    Sat Aug 16 14:41:50 PDT 2014
 changes:
