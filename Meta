@@ -1,7 +1,7 @@
 =meta: 0.0.2
 
 name: Alt
-version: 0.14
+version: 0.15
 abstract: Alternate Module Implementations
 homepage: https://metacpan.org/release/Alt
 language: perl
@@ -10,7 +10,7 @@ copyright: 2012-2014. Ingy döt Net.
 
 author:
   name: Ingy döt Net
-  email: ingy@ingy.net
+  email: ingy@cpan.org
   homepage: http://ingy.net
   github: ingydotnet
   twitter: ingydotnet
