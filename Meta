@@ -1,7 +1,7 @@
 =meta: 0.0.1
 
 name: Alt
-version: 0.12
+version: 0.13
 abstract: Alternate Module Implementations
 homepage: https://metacpan.org/release/Alt
 
@@ -21,6 +21,8 @@ requires:
 test:
   requires:
     Test::Exception: 0
+  generate:
+    000-require-modules.t: true
 
 devel:
   git: https://github.com/ingydotnet/alt-pm
