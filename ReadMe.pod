@@ -72,9 +72,9 @@ Names for alternate modules should be minted like this:
     "Alt-$Original_Dist_Name-$phrase"
 
 For instance, if MSTROUT wants to make an alternate IO-All distribution to
-make it even more crack fueled, he might call it:
+have it be Moo-based, he might call it:
 
-    Alt-IO-All-crackfueled
+    Alt-IO-All-Moo
 
 He might also just call it:
 
@@ -111,41 +111,18 @@ index reports not show failures.
 
 =item Versioning
 
-It is not enough to not index the new modules. We have seen cases where smoke
-testing machines have installed Alt modules, and then gotten the wrong
-dependencies for something else later on. You should set the C<$VERSION> as
-low as possible for the modules you are providing alternates for.
+It is important to not declare a C<$VERSION> in any of the modules that you
+are providing alternates for. This will help ensure that your alternate
+module does not satisfy the version requirements for something that wants the
+real module.
 
-The easiest way to do that is to not have any C<$VERSION> at all for the
-alternates. (Just have a C<$VERSION> for your C<Alt::*> module).
+If you want to depend on the alternate versions, then set the dependency on
+the C<Alt::> module.
 
-NOTE: If someone deps on version '0' of the module you are Alting, even no
-      C<$VERSION> will satisfy that. This is only a possible problem under
-      specific situations:
-
-=over
-
-=item 1.
-
-On a machine that is installing random modules (like a smoketesting box)
-
-=item 2.
-
-A module deps on VERSION 0 of something
-
-=item 3.
-
-That something is Alted
-
-=item 4.
-
-The Alt VERSION got installed prior
-
-=item 5.
-
-The Alt VERSION is broken
-
-=back
+NOTE: If you provide an alternate Foo::Bar (with no VERSION) it B<will>
+      satisfy the version requirements for someone who requires C<<
+      Foo::Bar => 0 >>. In a sense, depending on version 0 means that
+      alternates are OK.
 
 =item C<use> the Alt
 

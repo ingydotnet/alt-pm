@@ -62,9 +62,9 @@ Here are the basic guidelines for best using the Alt namespace:
     "Alt-$Original_Dist_Name-$phrase"
 
   For instance, if MSTROUT wants to make an alternate IO-All distribution to
-  make it even more crack fueled, he might call it:
+  have it be Moo-based, he might call it:
 
-    Alt-IO-All-crackfueled
+    Alt-IO-All-Moo
 
   He might also just call it:
 
@@ -101,23 +101,17 @@ Here are the basic guidelines for best using the Alt namespace:
 
 - Versioning
 
-  It is not enough to not index the new modules. We have seen cases where smoke
-  testing machines have installed Alt modules, and then gotten the wrong
-  dependencies for something else later on. You should set the `$VERSION` as
-  low as possible for the modules you are providing alternates for.
+  It is important to not declare a `$VERSION` in any of the modules that you
+  are providing alternates for. This will help ensure that your alternate
+  module does not satisfy the version requirements for something that wants the
+  real module.
 
-  The easiest way to do that is to not have any `$VERSION` at all for the
-  alternates. (Just have a `$VERSION` for your `Alt::*` module).
+  If you want to depend on the alternate versions, then set the dependency on
+  the `Alt::` module.
 
-  NOTE: If someone deps on version '0' of the module you are Alting, even no
-  `$VERSION` will satisfy that. This is only a possible problem under specific
-  situations:
-
-  + On a machine that is installing random modules (like a smoketesting box)
-  + A module deps on VERSION 0 of something
-  + That something is Alted
-  + The Alt VERSION got installed prior
-  + The Alt VERSION is broken
+  NOTE: If you provide an alternate Foo::Bar (with no VERSION) it *will*
+  satisfy the version requirements for someone who requires `Foo::Bar => 0`. In
+  a sense, depending on version 0 means that alternates are OK.
 
 - `use` the Alt
 
