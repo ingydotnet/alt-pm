@@ -15,7 +15,7 @@ Alt - Alternate Module Implementations
 
 =head1 SYNOPSIS
 
-    cpanm Alt::IO::All::Redux
+    PERL_ALT_INSTALL=OVERWRITE cpanm Alt::IO::All::Redux
 
 =head1 DESCRIPTION
 
@@ -46,7 +46,7 @@ distribute the new version as C<Alt-Foo-Bar-AltIdentifier>.
 
 When a user installs your module like so:
 
-    cpanm Alt::Foo::Bar::better
+    PERL_ALT_INSTALL=OVERWRITE cpanm Alt::Foo::Bar::better
 
 they will get your version of the Foo::Bar framework (Foo::Bar,
 Foo::Bar::Baz).
@@ -85,13 +85,25 @@ IO::All development. The "phrase" at the end can be anything unique to CPAN,
 but should describe the spirit of the alternate. If the alternate is meant to
 be short-lived, it can just be the author's CPAN id.
 
+=item Makefile.PL Changes
+
+Due to experience with L<http://cpantesters.org/> problems, it is important to
+make your Alt module B<not> install without explicit direction. You can
+accomplish this easily in a Makefile.PL, with something like this:
+
+    my $alt = $ENV{PERL_ALT_INSTALL} || '';
+    $WriteMakefileArgs{DESTDIR} =
+      $alt ? $alt eq 'OVERWRITE' ? '' : $alt : 'no-install-alt';
+
+Similar techniques should be available for other module release frameworks.
+
 =item Module for CPAN Indexing
 
 You will need to provide a module like C<Alt::IO::All::MSTROUT> so that
 CPAN will index something that can cause your distribution to get installed
 by people:
 
-    cpanm Alt::IO::All::MSTROUT
+    PERL_ALT_INSTALL=OVERWRITE cpanm Alt::IO::All::MSTROUT
 
 Since you are adding this module, you should add some doc to it explaining
 your alternate version's improvements.
