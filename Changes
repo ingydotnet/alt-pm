@@ -1,4 +1,9 @@
 ---
+version: 0.17
+date:    Sun Dec 28 19:50:06 PST 2014
+changes:
+- Update docs with new best practices
+---
 version: 0.16
 date:    Sat Aug 16 14:52:27 PDT 2014
 changes:

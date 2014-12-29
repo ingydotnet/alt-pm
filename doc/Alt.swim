@@ -3,11 +3,11 @@ Alt
 
 Alternate Module Implementations
 
-<badge travis coveralls ingydotnet/alt-pm>
+<badge travis ingydotnet/alt-pm>
 
 = Synopsis
 
-  cpanm Alt::IO::All::crackfueled
+  cpanm Alt::IO::All::Redux
 
 = Description
 
@@ -48,21 +48,12 @@ whole idea. The user isn't surprised by this because they just asked for an
 *Alt*ernate implementation. If they don't like it, they can simply reinstall
 the original Foo-Bar, or try some other alternate.
 
-= Whence Alt?
-
-The Alt- concept was thought up by Ingy as he tried to figure out how to
-revamp the somewhat popular IO::All and YAML.pm modules. Alternates can now be
-released and alpha/beta tested, while the originals remain stable.
-
-When Alt-IO-All-new is "community approved" it can replace IO-All. If
-people want the old code, they can can install Alt-IO-All-old.
-
-= Guidelines
+= Alt Best Practices
 
 This idea is new, and the details should be sorted out through proper
 discussions. Pull requests welcome.
 
-Here are the basic guidelines for using the Alt namespace:
+Here are the basic guidelines for best using the Alt namespace:
 
 - Name Creation
 
@@ -93,35 +84,64 @@ Here are the basic guidelines for using the Alt namespace:
     cpanm Alt::IO::All::MSTROUT
 
   Since you are adding this module, you should add some doc to it explaining
-  your Alternate version's improvements.
+  your alternate version's improvements.
 
-- Versioning
+  The Alt:: module can be as simple as this:
 
-  The VERSION of the module you are providing an alternate version of should
-  be the same as the original module at the time you release the alternate.
-  This will make it play well with others.
-
-  To use the IO::All example, if MSTROUT releases Alt-IO-All-MSTROUT when
-  IO::All is at version '0.46', his IO::All module should have VERSION =
-  '0.46', but his Alt::IO::All::MSTROUT could be VERSION '0.000005'. This
-  should make the dist be Alt-IO-All-MSTROUT-0.000005.
-
-  If another module wants his version of IO::All, it should list
-  Alt::IO::All::MSTROUT 0.000005 as a prereq, and then `use IO::All 0.46;` in
-  the code.
+    package Alt::IO::All::MSTROUT;
+    our $VERSION = '0.01';
 
 - no_index
 
   It is important to use the `no_index` directive on the modules you are
-  providing an alternative to. This is especially important if you are the
+  providing an alternates for. This is especially important if you are the
   author of the original, as PAUSE will reindex CPAN to your Alt- version
   which defeats the purpose. Even if you are not the same author, it will make
   your index reports not show failures.
+
+- Versioning
+
+  It is not enough to not index the new modules. We have seen cases where smoke
+  testing machines have installed Alt modules, and then gotten the wrong
+  dependencies for something else later on. You should set the `$VERSION` as
+  low as possible for the modules you are providing alternates for.
+
+  The easiest way to do that is to not have any `$VERSION` at all for the
+  alternates. (Just have a `$VERSION` for your `Alt::*` module).
+
+  NOTE: If someone deps on version '0' of the module you are Alting, even no
+  `$VERSION` will satisfy that. This is only a possible problem under specific
+  situations:
+
+  + On a machine that is installing random modules (like a smoketesting box)
+  + A module deps on VERSION 0 of something
+  + That something is Alted
+  + The Alt VERSION got installed prior
+  + The Alt VERSION is broken
+
+- `use` the Alt
+
+  You should add this line to your alternate modules:
+
+    use Alt::IO::All::MSTROUT;
+
+  That way the Alt:: module gets loaded any time you `use IO::All` (with the
+  alternate version installed). This gives debugging clues since the Alt::
+  module is now in `%INC`.
 
 - Other Concerns
 
   If you have em, I(ngy) would like to know them. Discuss on #toolchain on
   irc.perl.org for now.
+
+= Whence Alt?
+
+The Alt- concept was thought up by Ingy as he tried to figure out how to
+revamp the somewhat popular IO::All and YAML.pm modules. Alternates can now be
+released and alpha/beta tested, while the originals remain stable.
+
+When Alt-IO-All-new is "community approved" it can replace IO-All. If
+people want the old code, they can can install Alt-IO-All-old.
 
 = Author
 
