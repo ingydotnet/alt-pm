@@ -1,4 +1,9 @@
 ---
+version: 0.19
+date:    Mon Dec 29 14:24:59 PST 2014
+changes:
+- Add PERL_ALT_INSTALL to docs
+---
 version: 0.18
 date:    Mon Dec 29 08:03:15 PST 2014
 changes:
