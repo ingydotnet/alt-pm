@@ -27,6 +27,7 @@ requires:
 test:
   requires:
     Test::Exception: 0
+    Test::More: 0.98
 
 =zild:
   test-000: require
